@@ -1,0 +1,9 @@
+import easyocr
+#日本語と英語を読み取るオブジェクトを作成
+reader=easyocr.Reader(["ja","en"])#jaとかenってなんだ Japanese,English
+#画像ファイルを指定してテキストを読み取る
+result=reader.readtext(r"C:\Users\Owner\python_ver1\shop.png")
+#読み取った内容を表示
+for data in result:
+    _position,text,con=data
+    print(f"[{text}](信頼度:{con:2f})")
